@@ -10,11 +10,9 @@ const galleryContainer = document.querySelector(".gallery");
 
 for (const imgList of galleryItems) {
   const imgEl =
-`<li class="gallery__item">
-<a class="gallery__link" href="${imgList.original}">
+`<a class="gallery__link" href="${imgList.original}">
   <img class="gallery__image" src="${imgList.preview}" alt="${imgList.description}" />
 </a>
-</li>
 `;
   galleryContainer.insertAdjacentHTML("beforeend", imgEl);
 }
