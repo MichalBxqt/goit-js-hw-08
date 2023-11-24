@@ -24,12 +24,17 @@ window.addEventListener('DOMContentLoaded', () => {
   const savedSett = localStorage.getItem('feedback-form-state');
   const parsedSett = JSON.parse(savedSett);
 
-  messageArea.value = parsedSett.message ?? '';
+  if(parsedSett) {
   emailArea.value = parsedSett.email ?? '';
+messageArea.value = parsedSett.message ?? '';}
 });
 
 form.addEventListener('submit', evt => {
   evt.preventDefault();
+  const savedSett = localStorage.getItem('feedback-form-state');
+  const parsedSett = JSON.parse(savedSett);
+
+  console.log(`Email: ${parsedSett.email} Message: ${parsedSett.message} `)
   localStorage.removeItem('feedback-form-state');
   form.reset();
 });
